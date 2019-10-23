@@ -13,7 +13,7 @@ app.use(express.static('public'));
 
 mongodb_connection_string = config.getDBPath();
 if(process.env.OPENSHIFT_MONGODB_DB_URL){
-  mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + db_name;
+  mongodb_connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + config.db.name;
 }
 
 mongoose.connect(mongodb_connection_string, {useNewUrlParser: true})
