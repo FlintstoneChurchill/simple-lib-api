@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 const config = require("./config");
+const books = require("./app/books");
 const PORT = 8000;
 
 app.use(express.json());
@@ -13,7 +14,7 @@ mongoose.connect(config.getDBPath(), {useNewUrlParser: true})
   .then(() => {
     console.log("Mongoose connected");
 
-    app.use("/", )
+    app.use("/", books());
 
     app.listen(PORT, () => {
       console.log(`Server running at ${PORT} port`);
